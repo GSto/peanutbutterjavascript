@@ -1,7 +1,7 @@
 export default function Index() {
     return (
-        <div>
-            Welcome to PBJS 2.
-        </div>
+      <div>
+        Welcome to PBJS 2.
+      </div>
     )
 }
