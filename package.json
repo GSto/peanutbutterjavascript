@@ -16,6 +16,9 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "gray-matter": "^4.0.2",
+    "js-yaml": "^3.14.0",
+    "marked": "^1.2.2",
     "raw-loader": "^4.0.2"
   }
 }
