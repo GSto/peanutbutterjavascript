@@ -1,16 +1,18 @@
 import matter from 'gray-matter'
 import marked from 'marked'
 import yaml from 'js-yaml'
+import fs from 'fs'
+import process from 'process'
+
 
 export async function getAllPosts() {
-  const context = require.context('../_posts', false, '/\.md$/')
+  const files = await fs.promises.readdir(`${process.cwd()}/_posts/`)
   const posts = []
-  for(const key of context.keys()) {
-    const post = key.slice(2)
+  for(const post of files) {
     const content = await import(`../_posts/${post}`)
     const meta = matter(content.default)
     posts.push({
-      slug: post.repleace('.md', ''),
+      slug: post.replace('.md', ''),
       title: meta.data.title
     })
   }
