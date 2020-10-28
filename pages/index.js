@@ -9,7 +9,13 @@ export default function Index({ title, description, posts }) {
         <div>
           <p>Posts:</p>
           <ul>
-
+            {posts.map((post) => (
+              <li key={post.slug}>
+                <Link href={`/posts/${post.slug}`}>
+                  <a>{post.title}</a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </DefaultLayout>
