@@ -11,7 +11,9 @@ export default function DefaultLayout({ title, description, children }) {
         <meta name='description' content={description} />
       </Head>
       <Header />
-      { children }
+      <div className="p-6">
+        { children }
+      </div>
       <Footer />
     </main>
   )
