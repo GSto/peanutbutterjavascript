@@ -7,7 +7,6 @@ export default function Index({ title, description, posts }) {
     return (
       <DefaultLayout title={title} description={description}>
         <div>
-          <p>Posts:</p>
           <ul>
             {posts.map((post) => (
               <li key={post.slug}>
