@@ -2,3 +2,10 @@
 @tailwind components; 
 @tailwind utilities; 
 
+/* Global blog post styles */ 
+article h1 { @apply font-bold text-5xl; }
+article h2 { @apply font-bold text-4xl; }
+article h3 { @apply font-bold text-3xl; }
+article h4 { @apply font-bold text-2xl; }
+article h5 { @apply font-bold text-xl; }
+article h6 { @apply font-semibold; }
