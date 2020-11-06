@@ -19,7 +19,7 @@ This change makes a lot of sense if you think what JavaScript classes are. A Jav
 
 First, they have overall cleaner syntax. Here’s the simplest example compare a class component and a function component: 
 
-```js
+```javascript
 class ClassButton extends Component {
   render() {
     return <button>{this.props.children}</button>

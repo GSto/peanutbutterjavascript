@@ -8,7 +8,7 @@ export default function PostLayout({ title, content }) {
       <Head>
         <title>{ title }</title>
       </Head>
-      <article>
+      <article className="max-w-4xl p-4 ml-auto mr-auto">
         <h1>{ title }</h1>
         <div dangerouslySetInnerHTML={{__html:content}} />
         <div>

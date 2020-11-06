@@ -31,4 +31,4 @@ I hope you like it!
 
   [title](https://www.example.com)
 
-  ![alt text](image.jpg)
+  ![alt text](https://placedog.net/500)

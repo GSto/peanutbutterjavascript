@@ -3,9 +3,14 @@
 @tailwind utilities; 
 
 /* Global blog post styles */ 
-article h1 { @apply font-bold text-5xl; }
-article h2 { @apply font-bold text-4xl; }
-article h3 { @apply font-bold text-3xl; }
-article h4 { @apply font-bold text-2xl; }
-article h5 { @apply font-bold text-xl; }
+article h1 { @apply font-bold text-5xl mb-8 text-purple-900; }
+article h2 { @apply font-bold text-4xl mb-2; }
+article h3 { @apply font-bold text-3xl mb-2; }
+article h4 { @apply font-bold text-2xl mb-2; }
+article h5 { @apply font-bold text-xl mb-2; }
 article h6 { @apply font-semibold; }
+article p { @apply text-xl mb-8; }
+article pre { @apply mb-8 p-2; }
+article ul { @apply mb-8;}
+article ol { @apply mb-8;}
+body { @apply bg-orange-100; }
