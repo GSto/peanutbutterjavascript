@@ -5,14 +5,14 @@ import Footer from '@includes/footer'
 
 export default function DefaultLayout({ title, description, children }) {
   return (
-    <main>
+    <main className="flex flex-col h-screen justify-between">
       <Head>
         <title>{ title }</title>
         <meta name='description' content={description} />        
         <script>highlight.initHighlightingOnLoad()</script>
       </Head>
       <Header />
-      <div className="p-6">
+      <div className="p-6 mb-auto">
         { children }
       </div>
       <Footer />

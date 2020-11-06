@@ -1,6 +1,5 @@
 import DefaultLayout from '@layouts/default'
 import Head from 'next/head'
-import Link from 'next/link'
 
 export default function PostLayout({ title, content }) {
   return (
