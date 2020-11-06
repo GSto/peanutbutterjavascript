@@ -11,11 +11,6 @@ export default function PostLayout({ title, content }) {
       <article className="max-w-4xl p-4 ml-auto mr-auto">
         <h1>{ title }</h1>
         <div dangerouslySetInnerHTML={{__html:content}} />
-        <div>
-          <Link href='/'>
-            <a>Home</a>
-          </Link>
-        </div>
       </article>
     </DefaultLayout>
   )

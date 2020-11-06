@@ -29,6 +29,6 @@ I hope you like it!
 
   ---
 
-  [title](https://www.example.com)
+  [A Link](https://www.example.com)
 
   ![alt text](https://placedog.net/500)
