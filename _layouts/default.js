@@ -8,8 +8,8 @@ export default function DefaultLayout({ title, description, children }) {
     <main className="flex flex-col h-screen justify-between">
       <Head>
         <title>{ title }</title>
-        <meta name='description' content={description} />        
-        <script>highlight.initHighlightingOnLoad()</script>
+        <meta name='description' content={description} />       
+        <script>highlight.initHighlightingOnLoad()</script> 
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"></link>
       </Head>
       <Header />
