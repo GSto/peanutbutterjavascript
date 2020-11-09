@@ -10,6 +10,7 @@ export default function DefaultLayout({ title, description, children }) {
         <title>{ title }</title>
         <meta name='description' content={description} />        
         <script>highlight.initHighlightingOnLoad()</script>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"></link>
       </Head>
       <Header />
       <div className="p-6 mb-auto">

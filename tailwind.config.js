@@ -6,6 +6,10 @@ module.exports = {
   purge: [],
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ['Merriweather Sans', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    }
   },
   variants: {},
   plugins: [],
