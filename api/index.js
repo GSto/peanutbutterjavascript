@@ -19,6 +19,8 @@ const md = new MarkdownIt({
   }
 })
 
+// TODO: refactor to remove duplicate code from getAllPosts and getPostsByTag and getAllTags
+// TODO: is there a more efficient way to tackle this that doesn't read the post directory multiple times?
 export async function getAllPosts() {
   const files = await fs.promises.readdir(`${process.cwd()}/_posts/`)
   const posts = []
@@ -32,6 +34,40 @@ export async function getAllPosts() {
     })
   }
   return posts
+}
+
+export async function getPostsByTag(tag) {
+  const files = await fs.promises.readdir(`${process.cwd()}/_posts/`)
+  const posts = []
+  for(const post of files) {
+    const content = await import(`../_posts/${post}`)
+    const meta = matter(content.default)
+    if(posts.tags && posts.tags.include(tag)) {
+      posts.push({
+        ...meta.data,
+        slug: post.replace('.md', ''),
+      })
+    }
+  }
+  return posts
+}
+
+export async function getAllTags() {
+  const files = await fs.promises.readdir(`${process.cwd()}/_posts/`)
+  let tags = []
+  for(const post of files) {
+    const content = await import(`../_posts/${post}`)
+    const meta = matter(content.default)
+    if(post.tags) {
+      tags = post.reduce((tag, acc) => {
+        if(acc.indexOf(tag) === -1) {
+          return [...acc, tag]
+        }
+        return acc
+      }, tags)
+    }
+  }
+  return tags
 }
 
 export async function getPostBySlug(slug) {

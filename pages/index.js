@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import DefaultLayout from '@layouts/default'
 import PostList from '@components/post_list'
 import { getConfig, getAllPosts } from '@api'

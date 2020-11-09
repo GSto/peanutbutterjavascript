@@ -7,9 +7,15 @@ export default function Header() {
           <a class="font-semibold text-xl tracking-wider">PeanutButter JavaScript</a>
         </Link>
         <div class="w-full block flex-grow justify-end lg:flex lg:items-center lg:w-auto tracking-wider">
-          <a href="#" className="ml-4 mr-4">React</a>
-          <a href="#" className="mr-4">Redux</a>
-          <a href="#" className="mr-4">VanillaJS</a>
+          <Link href="/tags/react">
+            <a className="ml-4 mr-4 cursor-pointer">React</a>
+          </Link>
+          <Link href="/tags/redux">
+            <a className="mr-4 cursor-pointer">Redux</a>
+          </Link>
+          <Link href="/tags/vanilla-js">
+            <a className="mr-4 cursor-pointer">VanillaJS</a>
+          </Link>
         </div>
       </nav>
     </header>
