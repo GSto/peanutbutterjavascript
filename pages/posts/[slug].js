@@ -1,5 +1,5 @@
 import PostLayout from '@layouts/post'
-import { getPostBySlug, getAllPosts } from "@api"
+import { getPostBySlug, getAllPosts } from "@pb/post_query"
 
 export default function Post({ post }) {
   return (

@@ -1,6 +1,6 @@
 import DefaultLayout from '@layouts/default'
 import PostList from '@components/post_list'
-import { getPostsByTag, getAllTags } from '@api'
+import { getPostsByTag, getAllTags } from '@pb/post_query'
 
 export default function Index({ title, description, posts }) {
     return (

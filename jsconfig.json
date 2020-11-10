@@ -5,8 +5,8 @@
       "@components/*": ["_components/*"],
       "@layouts/*": ["_layouts/*"],
       "@posts/*": ["_posts/*"],
+      "@pb/*": ["_pb/*"],
       "@api": ["api/index"],
-      "@peanutbutter": ["_peanutbutter/*"],
     }
   }
 }
