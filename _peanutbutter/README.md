@@ -1,0 +1,1 @@
+This is a collection of files that we'll eventually want to abstract out into an NPM module that can be included in other NextJS projects.
