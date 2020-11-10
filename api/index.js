@@ -42,7 +42,7 @@ export async function getPostsByTag(tag) {
   for(const post of files) {
     const content = await import(`../_posts/${post}`)
     const meta = matter(content.default)
-    if(posts.tags && posts.tags.include(tag)) {
+    if(meta.data.tags && meta.data.tags.includes(tag)) {
       posts.push({
         ...meta.data,
         slug: post.replace('.md', ''),
@@ -54,20 +54,16 @@ export async function getPostsByTag(tag) {
 
 export async function getAllTags() {
   const files = await fs.promises.readdir(`${process.cwd()}/_posts/`)
-  let tags = []
+  const tags = new Set()
   for(const post of files) {
     const content = await import(`../_posts/${post}`)
     const meta = matter(content.default)
-    if(post.tags) {
-      tags = post.reduce((tag, acc) => {
-        if(acc.indexOf(tag) === -1) {
-          return [...acc, tag]
-        }
-        return acc
-      }, tags)
+    if(!meta.data.tags) continue
+    for(const tag of meta.data.tags) {
+      tags.add(tag)
     }
   }
-  return tags
+  return [...tags]
 }
 
 export async function getPostBySlug(slug) {

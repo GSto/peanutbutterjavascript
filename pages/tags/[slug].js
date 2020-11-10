@@ -16,7 +16,7 @@ export async function getStaticProps(context) {
   const posts = await getPostsByTag(context.params.slug)
   return {
     props: {
-      posts: await getPostsByTag(context.params.slug),
+      posts: posts,
       title: context.params.slug,
       description: `posts tagged ${context.params.slug}`,
     }
