@@ -71,7 +71,7 @@ export async function getPostBySlug(slug) {
   const meta = matter(fileContent.default)
   const content = md.render(meta.content)
   return {
-    title: meta.data.title, 
+    ...meta.data,
     content: content,
   }
 }

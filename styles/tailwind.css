@@ -9,21 +9,21 @@ body {
 }
 
 /* Global blog post styles */ 
-article h1 { @apply font-bold text-5xl mb-8; }
-article h2 { @apply font-bold text-4xl mb-2; }
-article h3 { @apply font-bold text-3xl mb-2; }
-article h4 { @apply font-bold text-2xl mb-2; }
-article h5 { @apply font-bold text-xl mb-2; }
-article h6 { @apply font-semibold; }
-article p { @apply text-xl mb-8 font-serif; }
-article pre { @apply mb-8 p-2; }
-article ul { @apply mb-8 list-disc text-xl font-serif;}
-article ol { @apply mb-8 list-decimal text-xl font-serif;}
-article ul li p { @apply mb-0;}
-article blockquote { @apply pl-4 pt-4 pb-1 bg-orange-200 text-orange-900 font-serif; }
-article code { @apply text-orange-900; }
-article a { @apply underline text-purple-700; }
-article a:visited { @apply text-purple-900; }
-article a:hover { @apply cursor-pointer; }
-article img { @apply ml-auto mr-auto mb-8 shadow-lg; }
+.markdown h1 { @apply font-bold text-5xl mb-8; }
+.markdown h2 { @apply font-bold text-4xl mb-2; }
+.markdown h3 { @apply font-bold text-3xl mb-2; }
+.markdown h4 { @apply font-bold text-2xl mb-2; }
+.markdown h5 { @apply font-bold text-xl mb-2; }
+.markdown h6 { @apply font-semibold; }
+.markdown p { @apply text-xl mb-8 font-serif; }
+.markdown pre { @apply mb-8 p-2; }
+.markdown ul { @apply mb-8 list-disc text-xl font-serif;}
+.markdown ol { @apply mb-8 list-decimal text-xl font-serif;}
+.markdown ul li p { @apply mb-0;}
+.markdown blockquote { @apply pl-4 pt-4 pb-1 bg-orange-200 text-orange-900 font-serif; }
+.markdown code { @apply text-orange-900; }
+.markdown a { @apply underline text-purple-700; }
+.markdown a:visited { @apply text-purple-900; }
+.markdown a:hover { @apply cursor-pointer; }
+.markdown img { @apply ml-auto mr-auto mb-8 shadow-lg; }
 

@@ -1,16 +1,16 @@
 import PostLayout from '@layouts/post'
 import { getPostBySlug, getAllPosts } from "@api"
 
-export default function Post({ title, content }) {
+export default function Post({ post }) {
   return (
-    <PostLayout title={title} content={content} />
+    <PostLayout post={post} />
   )
 }
 
 export async function getStaticProps(context) {
-  console.log(context)
+  const post = await getPostBySlug(context.params.slug)
   return {
-    props: await getPostBySlug(context.params.slug)
+    props: { post },
   }
 }
 

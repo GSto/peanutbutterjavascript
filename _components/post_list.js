@@ -1,29 +1,29 @@
 import Link from 'next/link'
+import TagList from './tag_list'
+
+export function PostDate({ children }) {
+  if(!children) return null
+  return (
+    <span className="text-xl font-serif pl-2">{children}</span>
+  )
+}
+
+export function PostListItem({ post }) {
+  return (
+    <li key={post.slug} className="mb-8 hover:bg-orange-200 hover:text-orange-700">
+      <Link href={`/posts/${post.slug}`}>
+        <a className="text-3xl cursor-pointer text-orange-700 font-bold">{post.title}</a>
+      </Link>
+      <PostDate>{post.published_at}</PostDate>
+      { post.tags && <TagList tags={post.tags} /> }
+    </li>
+  )
+}
 
 export default function PostList({ posts }) {
   return (
     <ul>
-    {posts.map((post) => (
-      <li key={post.slug} className="mb-8 hover:bg-orange-200 hover:text-orange-700">
-        <Link href={`/posts/${post.slug}`}>
-          <a className="text-3xl cursor-pointer text-orange-700 font-bold">{post.title}</a>
-        </Link>
-        <span className="text-xl font-serif pl-2">{post.published_at}</span>
-        {
-          post.tags && (
-            <div className="flex flex-row">
-            {post.tags.map((tag) => (
-              <Link href={`/tags/${tag}`}>
-                <a className="bg-purple-700 hover:bg-purple-600 text-xs text-white mr-2 p-1 tracking-wider cursor-pointer mt-1">
-                  {tag}
-                </a>
-              </Link>
-            ))}
-            </div>
-          )
-        }
-      </li>
-    ))}
-  </ul>
+      {posts.map((post) => <PostListItem post={post} />)}
+    </ul>
   )
 }
