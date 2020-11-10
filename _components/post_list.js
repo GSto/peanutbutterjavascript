@@ -13,9 +13,11 @@ export default function PostList({ posts }) {
           post.tags && (
             <div className="flex flex-row">
             {post.tags.map((tag) => (
-              <span className="bg-purple-700 hover:bg-purple-600 text-xs text-white mr-2 p-1 tracking-wider cursor-pointer mt-1">
-                {tag}
-              </span>
+              <Link href={`/tags/${tag}`}>
+                <a className="bg-purple-700 hover:bg-purple-600 text-xs text-white mr-2 p-1 tracking-wider cursor-pointer mt-1">
+                  {tag}
+                </a>
+              </Link>
             ))}
             </div>
           )
