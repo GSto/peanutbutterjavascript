@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import highlight from 'highlight.js'
-import Header from '@includes/header'
-import Footer from '@includes/footer'
+import Header from '@components/header'
+import Footer from '@components/footer'
 
 export default function DefaultLayout({ title, description, children }) {
   return (
