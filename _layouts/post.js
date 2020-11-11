@@ -4,7 +4,6 @@ import { PostDate } from '@components/post_list'
 import TagList from '@components/tag_list'
 
 export default function PostLayout({ post }) {
-  console.log(post)
   const { title, content, published_at, tags } = post
   return (
     <DefaultLayout>
