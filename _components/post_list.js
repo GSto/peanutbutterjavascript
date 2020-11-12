@@ -10,7 +10,7 @@ export function PostDate({ children }) {
 
 export function PostListItem({ post }) {
   return (
-    <li key={post.slug} className="mb-8 hover:bg-orange-200 hover:text-orange-700">
+    <li key={post.slug} className="mb-8 hover:bg-orange-200 hover:text-orange-700 pb-1">
       <Link href={`/posts/${post.slug}`}>
         <a className="text-3xl cursor-pointer text-orange-700 font-bold">{post.title}</a>
       </Link>

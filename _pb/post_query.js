@@ -19,6 +19,21 @@ const md = new MarkdownIt({
   }
 })
 
+
+function sortPosts(posts) {
+  return posts.sort((a, b) => {
+    if(a.published_at && !b.published_at) return 1
+    if(!a.published_at && b.published_at) return -1
+    if(a.published_at > b.published_at) return -1
+    if(a.published_at < b.published_at) return 1
+    return 0
+  })
+}
+
+function sortStrings(strs) {
+
+}
+
 // TODO: refactor to remove duplicate code from getAllPosts and getPostsByTag and getAllTags
 // TODO: is there a more efficient way to tackle this that doesn't read the post directory multiple times?
 export async function getAllPosts() {
@@ -32,7 +47,7 @@ export async function getAllPosts() {
       ...meta.data,
     })
   }
-  return posts
+  return sortPosts(posts)
 }
 
 export async function getPostsByTag(tag) {
