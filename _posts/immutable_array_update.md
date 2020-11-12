@@ -1,7 +1,7 @@
 ---
 title:  "Update arrays without mutating the original"
 published_at: "2020-07-29"
-tags: ["immutable", "array"]
+tags: ["immutable", "array", "vanillaJS"]
 ---
 
 When working with tools like React and Redux, they discourage making direct edits to the state. Why is this? It's more prone to errors. The less you mutate your data, the better, and the easier it will be to reason about your code. The concept of not changing values is known as **immutability**. It's one thing to handle immutability with primitive data types like strings or integers, but it can get more complex when you using data structures like arrays or objects. Here is how you can apply all the different possible changes to an array, without changing the original. 
