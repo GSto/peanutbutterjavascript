@@ -20,7 +20,7 @@ body {
 .markdown ul { @apply mb-8 list-disc text-xl font-serif;}
 .markdown ol { @apply mb-8 list-decimal text-xl font-serif;}
 .markdown ul li p { @apply mb-0;}
-.markdown blockquote { @apply pl-4 pt-4 pb-1 bg-orange-200 text-orange-900 font-serif; }
+.markdown blockquote { @apply pl-4 pt-4 pb-1 mb-8 bg-orange-200 text-orange-900 font-serif; }
 .markdown a { @apply underline text-purple-700; }
 .markdown a:visited { @apply text-purple-900; }
 .markdown a:hover { @apply cursor-pointer; }
