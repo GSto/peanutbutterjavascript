@@ -2,8 +2,6 @@
 
 An opinionated blog built on [NextJS](https://nextjs.org/)
 
-View it like here: [PeanutButter JavaScript](https://www.peanutbutterjavascript.com/)
-
 ## Roadmap
 - Post generator
 - Google analytics integration
@@ -12,3 +10,4 @@ View it like here: [PeanutButter JavaScript](https://www.peanutbutterjavascript.
 - test coverage
 - better readme
 - extract blog engine to seperate package
+- blogchain (series) support
