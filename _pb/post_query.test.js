@@ -1,26 +1,10 @@
-import { 
-  fileToSlug,
-  slugToFile
-} from './post_query'
+import { hasTag } from './post_query'
 
-describe('fileToSlug', () => {
-  test('removes the .md file extension', () => {
-    const post = 'title.md'
-    const result = fileToSlug(post)
-    expect(result).toEqual('title')
-  })
-
-  test('replaces underscores with dashes', () => {
-    const post = 'my_post_title.md'
-    const result = fileToSlug(post)
-    expect(result).toEqual('my-post-title')
-  })
-})
-
-describe('slugToFile', () => {
-  test('converts a slug to a file', () => {
-    const slug = 'my-post-title'
-    const result = slugToFile(slug)
-    expect(result).toEqual('my_post_title.md')
+describe('hasTag', () => {
+  test('matches if tag has space and query has hyphen', () => {
+    const haystack = ['dependency management']
+    const needle = 'dependency-management'
+    const result = hasTag(haystack, needle)
+    expect(result).toEqual(true)
   })
 })

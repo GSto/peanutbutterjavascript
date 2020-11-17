@@ -4,6 +4,7 @@ import MarkdownIt from 'markdown-it'
 import yaml from 'js-yaml'
 import fs from 'fs'
 import process from 'process'
+import {slugify, slugToFile } from './transformers'
 
 const md = new MarkdownIt({
   highlight: (str, lang) => {
@@ -30,12 +31,9 @@ export function sortPosts(posts) {
   })
 }
 
-export function fileToSlug(post) {
-  return post.replace('.md','').replace(/_/g,'-')
-}
-
-export function slugToFile(slug) {
-  return `${slug.replace(/-/g,'_')}.md`
+export function hasTag(tags, tag) {
+  return tags
+    .filter(t => slugify(t) === slugify(tag)).length !== 0
 }
 
 export async function getPostFiles() {
@@ -49,7 +47,7 @@ export async function getPostMeta(filename) {
   const meta = matter(content.default)
   return {
     ...meta.data,
-    slug: fileToSlug(filename),
+    slug: slugify(filename),
   }
 }
 
@@ -70,10 +68,10 @@ export async function getPostsByTag(tag) {
   for(const post of files) {
     const content = await import(`../_posts/${post}`)
     const meta = matter(content.default)
-    if(meta.data.tags && meta.data.tags.includes(tag)) {
+    if(hasTag(meta.data.tags, tag)) {
       posts.push({
         ...meta.data,
-        slug: fileToSlug(post),
+        slug: slugify(post),
       })
     }
   }
@@ -88,7 +86,7 @@ export async function getAllTags() {
     const meta = matter(content.default)
     if(!meta.data.tags) continue
     for(const tag of meta.data.tags) {
-      tags.add(tag)
+      tags.add(slugify(tag))
     }
   }
   return [...tags]
@@ -104,6 +102,7 @@ export async function getPostBySlug(slug) {
   }
 }
 
+//TODO: no reason for YML support. convert this to a JSON file.
 export async function getConfig() {
   const config = await import('../config.yml')
   return yaml.safeLoad(config.default)
