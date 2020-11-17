@@ -20,7 +20,7 @@ const md = new MarkdownIt({
 })
 
 
-function sortPosts(posts) {
+export function sortPosts(posts) {
   return posts.sort((a, b) => {
     if(a.published_at && !b.published_at) return 1
     if(!a.published_at && b.published_at) return -1
@@ -38,25 +38,34 @@ export function slugToFile(slug) {
   return `${slug.replace(/-/g,'_')}.md`
 }
 
+export async function getPostFiles() {
+  return await fs.promises.readdir(`${process.cwd()}/_posts/`)
+}
 
-// TODO: refactor to remove duplicate code from getAllPosts and getPostsByTag and getAllTags
-// TODO: is there a more efficient way to tackle this that doesn't read the post directory multiple times?
+// extracts post, applies metadata to post
+// TODO: needs testing
+export async function getPostMeta(filename) {
+  const content = await import(`../_posts/${filename}`)
+  const meta = matter(content.default)
+  return {
+    ...meta.data,
+    slug: fileToSlug(filename),
+  }
+}
+
+
 export async function getAllPosts() {
-  const files = await fs.promises.readdir(`${process.cwd()}/_posts/`)
+  const files = await getPostFiles()
   const posts = []
   for(const post of files) {
-    const content = await import(`../_posts/${post}`)
-    const meta = matter(content.default)
-    posts.push({
-      slug: fileToSlug(post),
-      ...meta.data,
-    })
+    const meta = await getPostMeta(post)
+    posts.push(meta)
   }
   return sortPosts(posts)
 }
 
 export async function getPostsByTag(tag) {
-  const files = await fs.promises.readdir(`${process.cwd()}/_posts/`)
+  const files = await getPostFiles()
   const posts = []
   for(const post of files) {
     const content = await import(`../_posts/${post}`)
@@ -68,11 +77,11 @@ export async function getPostsByTag(tag) {
       })
     }
   }
-  return posts
+  return sortPosts(posts)
 }
 
 export async function getAllTags() {
-  const files = await fs.promises.readdir(`${process.cwd()}/_posts/`)
+  const files = await getPostFiles()
   const tags = new Set()
   for(const post of files) {
     const content = await import(`../_posts/${post}`)
