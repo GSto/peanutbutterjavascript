@@ -1,5 +1,26 @@
-describe("Post Query", () => {
-  test("basic jest setup", () => {
-    expect(2 + 2).toEqual(4)
+import { 
+  fileToSlug,
+  slugToFile
+} from './post_query'
+
+describe('fileToSlug', () => {
+  test('removes the .md file extension', () => {
+    const post = 'title.md'
+    const result = fileToSlug(post)
+    expect(result).toEqual('title')
+  })
+
+  test('replaces underscores with dashes', () => {
+    const post = 'my_post_title.md'
+    const result = fileToSlug(post)
+    expect(result).toEqual('my-post-title')
+  })
+})
+
+describe('slugToFile', () => {
+  test('converts a slug to a file', () => {
+    const slug = 'my-post-title'
+    const result = slugToFile(slug)
+    expect(result).toEqual('my_post_title.md')
   })
 })

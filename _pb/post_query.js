@@ -30,9 +30,14 @@ function sortPosts(posts) {
   })
 }
 
-function sortStrings(strs) {
-
+export function fileToSlug(post) {
+  return post.replace('.md','').replace(/_/g,'-')
 }
+
+export function slugToFile(slug) {
+  return `${slug.replace(/-/g,'_')}.md`
+}
+
 
 // TODO: refactor to remove duplicate code from getAllPosts and getPostsByTag and getAllTags
 // TODO: is there a more efficient way to tackle this that doesn't read the post directory multiple times?
@@ -43,7 +48,7 @@ export async function getAllPosts() {
     const content = await import(`../_posts/${post}`)
     const meta = matter(content.default)
     posts.push({
-      slug: post.replace('.md', ''),
+      slug: fileToSlug(post),
       ...meta.data,
     })
   }
@@ -59,7 +64,7 @@ export async function getPostsByTag(tag) {
     if(meta.data.tags && meta.data.tags.includes(tag)) {
       posts.push({
         ...meta.data,
-        slug: post.replace('.md', ''),
+        slug: fileToSlug(post),
       })
     }
   }
@@ -81,7 +86,7 @@ export async function getAllTags() {
 }
 
 export async function getPostBySlug(slug) {
-  const fileContent = await import(`../_posts/${slug}.md`)
+  const fileContent = await import(`../_posts/${slugToFile(slug)}`)
   const meta = matter(fileContent.default)
   const content = md.render(meta.content)
   return {
