@@ -102,8 +102,10 @@ export async function getPostBySlug(slug) {
 }
 
 export function getConfig() {
-  const config = fs.readFileSync(process.cwd() + '/peanutbutter.json')
-  return JSON.parse(config)
+  return {
+    title: process.env.NEXT_PUBLIC_PB_SITE_TITLE,
+    description: process.env.NEXT_PUBLIC_PB_SITE_DESCRIPTION,
+  }
 }
 
 export async function getBlock(block) {
