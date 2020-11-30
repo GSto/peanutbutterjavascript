@@ -105,3 +105,13 @@ export function getConfig() {
   const config = fs.readFileSync(process.cwd() + '/peanutbutter.json')
   return JSON.parse(config)
 }
+
+export async function getBlock(block) {
+  const fileContent = await import(`../_blocks/${block}.md`)
+  const meta = matter(fileContent.default)
+  const content = md.render(meta.content)
+  return{
+    ...meta.data, 
+    content: content,
+  }
+}

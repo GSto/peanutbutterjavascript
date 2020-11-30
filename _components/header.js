@@ -16,6 +16,9 @@ export default function Header() {
           <Link href="/tags/vanilla-js">
             <a className="mr-4 cursor-pointer">VanillaJS</a>
           </Link>
+          <Link href="/about">
+            <a className="mr-4 cursor-pointer">About</a>
+          </Link>
         </div>
       </nav>
     </header>
