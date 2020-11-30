@@ -2,6 +2,8 @@ import DefaultLayout from '@components/default_layout'
 import PostList from '@components/post_list'
 import { getAllPosts } from '@pb/post_query'
 import { getSiteMeta } from '@pb/config'
+import { generateRSS } from '@pb/rss'
+import fs from 'fs'
 
 export default function Index({ title, description, posts }) {
     return (
@@ -32,8 +34,14 @@ export default function Index({ title, description, posts }) {
 }
 
 export async function getStaticProps() {
-  const config = await getConfig()
+  const config = await getSiteMeta()
   const allPosts = await getAllPosts()
+
+  // this is called when building the page, we'll use this to also create the RSS.xml file. 
+  // this feels like a bit of a hack, but it'll work for now, and prevents us from querying posts twice
+  const rss = generateRSS(allPosts, config)
+  fs.writeFileSync('./public/rss.xml', rss)
+
   return {
     props: {
       posts: allPosts, 

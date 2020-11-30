@@ -1,21 +1,33 @@
 import { getSiteMeta } from '@pb/config'
 
-// based on work from https://dev.to/emilioschepis/adding-a-statically-generated-rss-feed-to-a-next-js-9-3-blog-58id
+// source: https://stackoverflow.com/questions/7918868/how-to-escape-xml-entities-in-javascript
+export function escapeXml(unsafe) {
+  return unsafe.replace(/[<>&'"]/g, function (c) {
+      switch (c) {
+          case '<': return '&lt;';
+          case '>': return '&gt;';
+          case '&': return '&amp;';
+          case '\'': return '&apos;';
+          case '"': return '&quot;';
+      }
+  });
+}
 
-export function generateRSS(posts) {
-  const { title, description, domain } = getSiteMeta()
+// based on work from https://dev.to/emilioschepis/adding-a-statically-generated-rss-feed-to-a-next-js-9-3-blog-58id
+export function generateRSS(posts, meta) {
+  const { title, description, domain } = meta
   const lastBuildDate = new Date(posts[0].published_at).toUTCString()
   const rssLink = `${domain}/rss.xml`
   return `
     <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
       <channel>
-        <title>${title}</title>
+        <title>${escapeXml(title)}</title>
         <link>${domain}</link>
-        <description>${description}</description>
+        <description>${escapeXml(description)}</description>
         <language>en</language>
         <lastBuildDate>${lastBuildDate}</lastBuildDate>
         <atom:link href="${rssLink}" rel="self" type="application/rss+xml"/>
-        ${posts.map(generateRSSItem.join(''))}
+        ${posts.map(generateRSSItem).join('')}
       </channel>
     </rss>
   `
@@ -28,9 +40,9 @@ export function generateRSSItem(post) {
   return `
     <item>
       <guid isPermalink="true">${url}</guid>
-      <title>${title}</title>
+      <title>${escapeXml(title)}</title>
       <link>${url}</link>
-      <description>${description}</description>
+      <description>${escapeXml(description)}</description>
       <pubDate>${pubDate}</pubDate>
     </item>
   `
