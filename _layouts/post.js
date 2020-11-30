@@ -19,6 +19,12 @@ export default function PostLayout({ post }) {
           <TagList tags={tags}></TagList>
         </div>
         <div className="markdown" dangerouslySetInnerHTML={{__html:content}} />
+
+        <p className="text-2xl bg-purple-700 text-white p-4">
+          To get more JavaScript tips and news, you can follow me on Twitter: <a href="twitter.com/gsto" target="_blank" className="font-bold underline pl-1">@GSto</a>
+        </p>
+        
+
       </article>
     </DefaultLayout>
   )
