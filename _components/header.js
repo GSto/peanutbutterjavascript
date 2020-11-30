@@ -4,9 +4,9 @@ export default function Header() {
     <header>
       <nav className="flex flex-row items-center bg-orange-700 text-white p-6">
         <Link href="/">
-          <a class="font-semibold text-xl tracking-wider">PeanutButter JavaScript</a>
+          <a className="font-semibold text-xl tracking-wider">PeanutButter JavaScript</a>
         </Link>
-        <div class="w-full block flex-grow justify-end lg:flex lg:items-center lg:w-auto tracking-wider">
+        <div className="w-full block flex-grow justify-end lg:flex lg:items-center lg:w-auto tracking-wider">
           <Link href="/tags/react">
             <a className="ml-4 mr-4 cursor-pointer">React</a>
           </Link>

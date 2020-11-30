@@ -14,7 +14,7 @@ export function Tag({ tag }) {
 export default function TagList({ tags = [] }) {
   return (
     <div className="flex flex-row">
-      {tags.map((tag) => <Tag tag={tag} />)}
+      {tags.map((tag) => <Tag key={tag} tag={tag} />)}
     </div>
   )
 }
