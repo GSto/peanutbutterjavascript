@@ -1,6 +1,7 @@
 import DefaultLayout from '@components/default_layout'
 import PostList from '@components/post_list'
-import { getAllPosts, getConfig } from '@pb/post_query'
+import { getAllPosts } from '@pb/post_query'
+import { getSiteMeta } from '@pb/config'
 
 export default function Index({ title, description, posts }) {
     return (
@@ -18,7 +19,6 @@ export default function Index({ title, description, posts }) {
                   View source
               </a>
             </p>
-
           </div>
         </div>
         <div className="bg-orange-700 p-4">

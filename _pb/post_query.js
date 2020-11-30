@@ -44,9 +44,11 @@ export async function getPostFiles() {
 export async function getPostMeta(filename) {
   const content = await import(`../${getPostDirectory()}/${filename}`)
   const meta = matter(content.default)
+  const slug = slugify(filename)
   return {
     ...meta.data,
-    slug: slugify(filename),
+    url: `${process.env.PB_SITE_DOMAIN}/posts/${slug}`,
+    slug,
   }
 }
 
@@ -93,13 +95,6 @@ export async function getAllTags() {
 export async function getPostBySlug(slug) {
   const fileContent = await import(`../${getPostDirectory()}/${slugToFile(slug)}`)
   return processContent(fileContent)
-}
-
-export function getConfig() {
-  return {
-    title: process.env.NEXT_PUBLIC_PB_SITE_TITLE,
-    description: process.env.NEXT_PUBLIC_PB_SITE_DESCRIPTION,
-  }
 }
 
 export async function getBlock(block) {
