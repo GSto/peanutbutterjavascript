@@ -96,4 +96,4 @@ const toDelete = 'x'
 const newArray = original.filter(item => item !== toDelete)
 ```
 
-I hope you found this resource useful when working with Immutable data in JavaScript. You can also check out the guide on [manipulating immutable objects](/posts/immutable_object_update). Bookmark this so can refer to it later.
+I hope you found this resource useful when working with Immutable data in JavaScript. You can also check out the guide on [manipulating immutable objects](/posts/immutable-object-update). Bookmark this so can refer to it later.

@@ -235,7 +235,7 @@ const FluxClassReducerForm = () => {
 }
 ```
 
-The reducer, in this example, is what I call a “patch reducer.” It applies updates to an object. This pattern leaves you with a component that behaves similarly to class components. You can also use this pattern along with [useContext to share and update state between multiple components](/posts/roll_your_own_redux).
+The reducer, in this example, is what I call a “patch reducer.” It applies updates to an object. This pattern leaves you with a component that behaves similarly to class components. You can also use this pattern along with [useContext to share and update state between multiple components](/posts/usecontext-usereducer).
 
 Take a moment to consider these ideas, and the pros and cons of each.
 
