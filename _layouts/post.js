@@ -23,6 +23,9 @@ export default function PostLayout({ post }) {
         <CTA>
           To get more JavaScript tips and news, you can follow me on Twitter: <a href="twitter.com/gsto" target="_blank" className="font-bold underline pl-1">@GSto</a>
         </CTA>
+        <span className="text-sm">
+          Have a comment or question? <a href="https://github.com/GSto/peanutbutterjavascript/issues" target="_blank" className="underline cursor-pointer">Submit an issue.</a>
+        </span>
       </Content>
     </DefaultLayout>
   )

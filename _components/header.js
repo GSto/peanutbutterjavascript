@@ -2,7 +2,7 @@ import Link from 'next/link'
 export default function Header() {
   return (
     <header>
-      <nav className="flex flex-row items-center bg-orange-700 text-white p-6">
+      <nav className="flex flex-row items-center bg-orange-700 text-white p-4">
         <Link href="/">
           <a className="font-semibold text-xl tracking-wider">PeanutButter JavaScript</a>
         </Link>

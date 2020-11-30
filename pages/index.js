@@ -5,8 +5,8 @@ import { getAllPosts, getConfig } from '@pb/post_query'
 export default function Index({ title, description, posts }) {
     return (
       <DefaultLayout title={title} description={description}>
-        <div className="bg-black text-white w-full">
-          <div className="max-w-4xl px-4 py-24 mx-auto">
+        <div className="bg-purple-900 text-white w-full">
+          <div className="max-w-4xl px-4 py-12 mx-auto">
             <p className="text-5xl tracking-wide">
               JavaScript solutions for the real world
             </p>
@@ -20,6 +20,9 @@ export default function Index({ title, description, posts }) {
             </p>
 
           </div>
+        </div>
+        <div className="bg-orange-700 p-4">
+          <span className="text-xl">&nbsp;</span>
         </div>
         <div className="max-w-4xl p-4 mx-auto">
           <PostList posts={posts} />
