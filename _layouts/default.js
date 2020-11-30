@@ -30,7 +30,7 @@ export default function DefaultLayout({ title, description, children }) {
         />
       </Head>
       <Header />
-      <div className="p-6 mb-auto">
+      <div>
         { children }
       </div>
       <Footer />
