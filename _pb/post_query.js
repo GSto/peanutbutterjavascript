@@ -27,6 +27,15 @@ export function getBlockDirectory() {
   return process.env.BLOCKS_DIRECTORY ? process.env.BLOCKS_DIRECTORY : '_blocks'
 }
 
+export function processContent(fileContent) {
+  const meta = matter(fileContent.default)
+  const content = md.render(meta.content)
+  return {
+    ...meta.data,
+    content: content,
+  }
+}
+
 export function sortPosts(posts) {
   return posts.sort((a, b) => {
     if(a.published_at && !b.published_at) return 1
@@ -39,15 +48,14 @@ export function sortPosts(posts) {
 
 export function hasTag(tags, tag) {
   return tags
-    .filter(t => slugify(t) === slugify(tag)).length !== 0
+    .filter(t => slugify(t) === slugify(tag))
+    .length !== 0
 }
 
 export async function getPostFiles() {
   return await fs.promises.readdir(`${process.cwd()}/${getPostDirectory()}/`)
 }
 
-// extracts post, applies metadata to post
-// TODO: needs testing
 export async function getPostMeta(filename) {
   const content = await import(`../${getPostDirectory()}/${filename}`)
   const meta = matter(content.default)
@@ -100,12 +108,7 @@ export async function getAllTags() {
 
 export async function getPostBySlug(slug) {
   const fileContent = await import(`../${getPostDirectory()}/${slugToFile(slug)}`)
-  const meta = matter(fileContent.default)
-  const content = md.render(meta.content)
-  return {
-    ...meta.data,
-    content: content,
-  }
+  return processContent(fileContent)
 }
 
 export function getConfig() {
@@ -117,10 +120,5 @@ export function getConfig() {
 
 export async function getBlock(block) {
   const fileContent = await import(`../${getBlockDirectory()}/${block}.md`)
-  const meta = matter(fileContent.default)
-  const content = md.render(meta.content)
-  return{
-    ...meta.data, 
-    content: content,
-  }
+  return processContent(fileContent)
 }
