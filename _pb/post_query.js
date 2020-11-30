@@ -1,7 +1,6 @@
 import matter from 'gray-matter'
 import highlight from 'highlight.js'
 import MarkdownIt from 'markdown-it'
-import yaml from 'js-yaml'
 import fs from 'fs'
 import process from 'process'
 import {slugify, slugToFile } from './transformers'
@@ -102,8 +101,7 @@ export async function getPostBySlug(slug) {
   }
 }
 
-//TODO: no reason for YML support. convert this to a JSON file.
-export async function getConfig() {
-  const config = await import('../config.yml')
-  return yaml.safeLoad(config.default)
+export function getConfig() {
+  const config = fs.readFileSync(process.cwd() + '/peanutbutter.json')
+  return JSON.parse(config)
 }
