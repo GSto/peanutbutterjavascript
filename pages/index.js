@@ -39,6 +39,7 @@ export async function getStaticProps() {
 
   // this is called when building the page, we'll use this to also create the RSS.xml file. 
   // this feels like a bit of a hack, but it'll work for now, and prevents us from querying posts twice
+  // maybe a custom pre-build step? 
   const rss = generateRSS(allPosts, config)
   fs.writeFileSync('./public/rss.xml', rss)
 

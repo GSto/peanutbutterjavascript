@@ -11,7 +11,12 @@ export default function DefaultLayout({ title, description, children }) {
         <meta name='description' content={description} />       
         <script>highlight.initHighlightingOnLoad()</script> 
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"></link>
-
+        <link 
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS feed for blog posts"
+          href="${process.env.NEXT_PUBLIC_PB_DOMAIN}/rss.xml"
+        />
         <script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
