@@ -1,23 +1,8 @@
 import matter from 'gray-matter'
-import highlight from 'highlight.js'
-import MarkdownIt from 'markdown-it'
 import fs from 'fs'
 import process from 'process'
 import {slugify, slugToFile } from './transformers'
-
-const md = new MarkdownIt({
-  highlight: (str, lang) => {
-    if(lang && highlight.getLanguage(lang)) {
-      try {
-        return '<pre class="hljs"><code>' +
-        highlight.highlight(lang, str, true).value +
-        '</code></pre>';
-      } catch (__) {}
-    }
-
-    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-  }
-})
+import { renderMarkdown } from './markdown'
 
 export function getPostDirectory() {
   return process.env.POSTS_DIRECTORY ? process.env.POSTS_DIRECTORY : '_posts'
@@ -29,7 +14,7 @@ export function getBlockDirectory() {
 
 export function processContent(fileContent) {
   const meta = matter(fileContent.default)
-  const content = md.render(meta.content)
+  const content = renderMarkdown(meta.content)
   return {
     ...meta.data,
     content: content,
@@ -64,7 +49,6 @@ export async function getPostMeta(filename) {
     slug: slugify(filename),
   }
 }
-
 
 export async function getAllPosts() {
   const files = await getPostFiles()
