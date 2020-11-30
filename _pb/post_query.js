@@ -19,6 +19,13 @@ const md = new MarkdownIt({
   }
 })
 
+export function getPostDirectory() {
+  return process.env.POSTS_DIRECTORY ? process.env.POSTS_DIRECTORY : '_posts'
+}
+
+export function getBlockDirectory() {
+  return process.env.BLOCKS_DIRECTORY ? process.env.BLOCKS_DIRECTORY : '_blocks'
+}
 
 export function sortPosts(posts) {
   return posts.sort((a, b) => {
@@ -36,13 +43,13 @@ export function hasTag(tags, tag) {
 }
 
 export async function getPostFiles() {
-  return await fs.promises.readdir(`${process.cwd()}/_posts/`)
+  return await fs.promises.readdir(`${process.cwd()}/${getPostDirectory()}/`)
 }
 
 // extracts post, applies metadata to post
 // TODO: needs testing
 export async function getPostMeta(filename) {
-  const content = await import(`../_posts/${filename}`)
+  const content = await import(`../${getPostDirectory()}/${filename}`)
   const meta = matter(content.default)
   return {
     ...meta.data,
@@ -65,7 +72,7 @@ export async function getPostsByTag(tag) {
   const files = await getPostFiles()
   const posts = []
   for(const post of files) {
-    const content = await import(`../_posts/${post}`)
+    const content = await import(`../${getPostDirectory()}/${post}`)
     const meta = matter(content.default)
     if(hasTag(meta.data.tags, tag)) {
       posts.push({
@@ -81,7 +88,7 @@ export async function getAllTags() {
   const files = await getPostFiles()
   const tags = new Set()
   for(const post of files) {
-    const content = await import(`../_posts/${post}`)
+    const content = await import(`../${getPostDirectory()}/${post}`)
     const meta = matter(content.default)
     if(!meta.data.tags) continue
     for(const tag of meta.data.tags) {
@@ -92,7 +99,7 @@ export async function getAllTags() {
 }
 
 export async function getPostBySlug(slug) {
-  const fileContent = await import(`../_posts/${slugToFile(slug)}`)
+  const fileContent = await import(`../${getPostDirectory()}/${slugToFile(slug)}`)
   const meta = matter(fileContent.default)
   const content = md.render(meta.content)
   return {
@@ -109,7 +116,7 @@ export function getConfig() {
 }
 
 export async function getBlock(block) {
-  const fileContent = await import(`../_blocks/${block}.md`)
+  const fileContent = await import(`../${getBlockDirectory()}/${block}.md`)
   const meta = matter(fileContent.default)
   const content = md.render(meta.content)
   return{
