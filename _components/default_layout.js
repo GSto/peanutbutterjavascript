@@ -1,15 +1,21 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
 import highlight from 'highlight.js'
 import Header from '@components/header'
 import Footer from '@components/footer'
+import GaInitializer from '@components/ga_initializer'
 
 export default function DefaultLayout({ title, description, children }) {
+  useEffect(() => {
+    highlight.initHighlightingOnLoad()
+  })
+  
   return (
     <main className="flex flex-col h-screen justify-between">
+      <GaInitializer />
       <Head>
         <title>{ title }</title>
         <meta name='description' content={description} />       
-        <script>highlight.initHighlightingOnLoad()</script> 
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"></link>
         <link 
           rel="alternate"
@@ -17,27 +23,9 @@ export default function DefaultLayout({ title, description, children }) {
           title="RSS feed for blog posts"
           href="${process.env.NEXT_PUBLIC_PB_DOMAIN}/rss.xml"
         />
-        <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-        `
-          }}
-        />
       </Head>
       <Header />
-      <div>
-        { children }
-      </div>
+      { children }
       <Footer />
     </main>
   )
