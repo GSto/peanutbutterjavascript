@@ -1,4 +1,4 @@
-import DefaultLayout from '@layouts/default'
+import DefaultLayout from '@components/default_layout'
 import PostList from '@components/post_list'
 import { getPostsByTag, getAllTags } from '@pb/post_query'
 

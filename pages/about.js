@@ -1,4 +1,4 @@
-import DefaultLayout from '@layouts/default'
+import DefaultLayout from '@components/default_layout'
 import { Content, Title, StyledMarkdown } from '@components/theme'
 import { getBlock } from '@pb/post_query'
 

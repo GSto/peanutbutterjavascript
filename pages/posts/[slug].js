@@ -1,4 +1,4 @@
-import DefaultLayout from '@layouts/default'
+import DefaultLayout from '@components/default_layout'
 import Head from 'next/head'
 import { PostDate } from '@components/post_list'
 import TagList from '@components/tag_list'
