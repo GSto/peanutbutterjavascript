@@ -12,15 +12,6 @@ export function getBlockDirectory() {
   return process.env.BLOCKS_DIRECTORY ? process.env.BLOCKS_DIRECTORY : '_blocks'
 }
 
-export function processContent(fileContent) {
-  const meta = matter(fileContent.default)
-  const content = renderMarkdown(meta.content)
-  return {
-    ...meta.data,
-    content: content,
-  }
-}
-
 export function sortPosts(posts) {
   return posts.sort((a, b) => {
     if(a.published_at && !b.published_at) return 1
@@ -94,10 +85,21 @@ export async function getAllTags() {
 
 export async function getPostBySlug(slug) {
   const fileContent = await import(`../${getPostDirectory()}/${slugToFile(slug)}`)
-  return processContent(fileContent)
+  const meta = matter(fileContent.default)
+  const content = renderMarkdown(meta.content)
+  return {
+    ...meta.data,
+    url: `${process.env.PB_SITE_DOMAIN}/posts/${slug}`,
+    content: content,
+  }
 }
 
 export async function getBlock(block) {
   const fileContent = await import(`../${getBlockDirectory()}/${block}.md`)
-  return processContent(fileContent)
+  const meta = matter(fileContent.default)
+  const content = renderMarkdown(meta.content)
+  return {
+    ...meta.data,
+    content: content,
+  }
 }
