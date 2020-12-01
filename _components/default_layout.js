@@ -14,8 +14,8 @@ export default function DefaultLayout({ title, description, children }) {
     <main className="flex flex-col h-screen justify-between">
       <GaInitializer />
       <Head>
-        <title>{ title }</title>
-        <meta name='description' content={description} />       
+        { title ? <title>{ title }</title> : null }
+        { description ? <meta name='description' content={description} /> : null }       
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"></link>
         <link 
           rel="alternate"

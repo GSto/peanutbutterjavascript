@@ -2,25 +2,23 @@ import DefaultLayout from '@components/default_layout'
 import Head from 'next/head'
 import { PostDate } from '@components/post_list'
 import TagList from '@components/tag_list'
+import SEOHead from '@components/seo_head'
 import { Content, Title, StyledMarkdown, CTA } from '@components/theme'
 import { getPostBySlug, getAllPosts } from "@pb/post_query"
 
 export default function Post({ post }) {
-  const { title, content, published_at, tags } = post
   return (
     <DefaultLayout>
-      <Head>
-        <title>{ title }</title>
-      </Head>
+      <SEOHead page={post} />
       <Content>
-        <Title>{ title }</Title>
+        <Title>{ !!post.headline ? post.headline : post.title }</Title>
         <div className="flex flex-row justify-center w-full mb-8">
           <span className="mr-4">
-            <PostDate>{published_at}</PostDate>
+            <PostDate>{post.published_at}</PostDate>
           </span>
-          <TagList tags={tags}></TagList>
+          <TagList tags={post.tags}></TagList>
         </div>
-        <StyledMarkdown content={content} />
+        <StyledMarkdown content={post.content} />
         <CTA>
           To get more JavaScript tips and news, you can follow me on Twitter: <a href="twitter.com/gsto" target="_blank" className="font-bold underline pl-1">@GSto</a>
         </CTA>
