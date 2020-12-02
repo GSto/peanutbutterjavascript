@@ -13,7 +13,7 @@ export default function Header() {
           <Link href="/tags/redux">
             <a className="mr-4 cursor-pointer">Redux</a>
           </Link>
-          <Link href="/tags/vanilla-js">
+          <Link href="/tags/vanillaJS">
             <a className="mr-4 cursor-pointer">VanillaJS</a>
           </Link>
           <Link href="/about">

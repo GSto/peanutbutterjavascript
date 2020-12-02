@@ -1,14 +1,15 @@
 import DefaultLayout from '@components/default_layout'
 import PostList from '@components/post_list'
 import { getPostsByTag, getAllTags } from '@pb/post_query'
+import { Content } from '@components/theme'
 
 export default function Index({ title, description, posts }) {
     return (
       <DefaultLayout title={title} description={description}>
-        <div className="max-w-4xl p-4 ml-auto mr-auto">
+        <Content>
           <h1 className="text-5xl font-bold pb-8">Articles tagged "{title}"</h1>
           <PostList posts={posts} />
-        </div>
+        </Content>
       </DefaultLayout>
     )
 }
