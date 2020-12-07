@@ -67,3 +67,5 @@ click 'deploy site'. In a few second your site will be live!
 
 ## Updating your site. 
 That was the last time you'll need to click the deploy button. From now on, every time you push a commit to the main branch, a new version of your site will automatically be deployed! 
+
+**Update December 7, 2020:** Netlify just added [Netlify one-click installs](https://www.netlify.com/blog/2020/12/07/announcing-one-click-install-next.js-build-plugin-on-netlify/)
