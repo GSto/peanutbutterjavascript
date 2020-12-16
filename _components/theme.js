@@ -1,6 +1,6 @@
 export function Content({ children }) {
   return (
-    <article className="max-w-4xl p-4 ml-auto mr-auto">
+    <article className="max-w-4xl p-4 mx-auto">
       { children }
     </article>
   )

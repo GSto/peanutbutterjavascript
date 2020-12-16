@@ -12,7 +12,7 @@ export default function Post({ post }) {
       <SEOHead page={post} />
       <Content>
         <Title>{ !!post.headline ? post.headline : post.title }</Title>
-        <div className="flex flex-row justify-center w-full mb-8">
+        <div className="flex flex-row md:justify-center mb-8">
           <span className="mr-4">
             <PostDate>{post.published_at}</PostDate>
           </span>

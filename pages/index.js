@@ -9,7 +9,7 @@ export default function Index({ title, description, posts }) {
     return (
       <DefaultLayout title={title} description={description}>
         <div className="bg-purple-900 text-white w-full">
-          <div className="max-w-4xl px-4 py-12 mx-auto">
+          <div className="md:max-w-4xl sm:max-w-full px-4 py-12 mx-auto">
             <p className="text-5xl tracking-wide">
               JavaScript solutions for the real world
             </p>

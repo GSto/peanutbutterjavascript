@@ -25,7 +25,9 @@ export default function DefaultLayout({ title, description, children }) {
         />
       </Head>
       <Header />
-      { children }
+      <section className="flex-grow">
+        { children }
+      </section>
       <Footer />
     </main>
   )

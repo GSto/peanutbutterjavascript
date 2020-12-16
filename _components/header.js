@@ -1,8 +1,9 @@
 import Link from 'next/link'
+
 export default function Header() {
   return (
-    <header>
-      <nav className="flex flex-row items-center bg-orange-700 text-white p-4 w-full">
+    <header className="bg-orange-700 text-white w-screen p-4 mx-auto">
+      <nav className="flex flex-row">
         <Link href="/">
           <a className="font-semibold text-xl tracking-wider">PeanutButter JavaScript</a>
         </Link>

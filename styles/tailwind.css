@@ -4,8 +4,9 @@
 
 /* Global site styles */
 body { 
-  @apply bg-orange-100; 
   -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: 100%;
 }
 
 /* Global blog post styles */ 
