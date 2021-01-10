@@ -1,36 +1,17 @@
-export function Content({ children }) {
-  return (
-    <article className="max-w-4xl p-4 mx-auto">
-      { children }
-    </article>
-  )
-}
+import styled from 'styled-components'
 
-export function Title({ children }) {
-  return (
-    <h1 className="mb-1 font-bold text-5xl text-orange-700">{ children }</h1>
-  )
-}
+export const Content = styled.article.attrs({
+  className: "max-w-4xl p-4 mx-auto"
+})``
 
-// uses styles from tailwind.css
-export function StyledMarkdown({ content }) {
-  return (
-    <div className="markdown" dangerouslySetInnerHTML={{__html:content}} />
-  )
-}
+export const Title = styled.h1.attrs({
+  className: "mb-1 font-bold text-5xl text-orange-700"
+})``
 
-export function StyledContent({ children }) {
-  return (
-    <div className="markdown">
-      { children }
-    </div>
-  )
-}
+export const StyledContent = styled.div.attrs({
+  className: "markdown"
+})``
 
-export function CTA({ children }) {
-  return (
-    <p className="text-2xl bg-purple-700 text-white p-4">
-      { children }
-    </p>
-  )
-}
+export const CTA = styled.p.attrs({
+  className: "text-2xl bg-purple-700 text-white p-4"
+})``

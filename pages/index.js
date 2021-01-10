@@ -23,7 +23,7 @@ export default function Index({ title, description, posts }) {
             </p>
           </div>
         </div>
-        <div className="bg-orange-700 p-4">
+        <div className="p-4">
           <span className="text-xl">&nbsp;</span>
         </div>
         <div className="max-w-4xl p-4 mx-auto">

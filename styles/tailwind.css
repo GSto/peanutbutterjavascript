@@ -10,13 +10,13 @@ body {
 }
 
 /* Global blog post styles */ 
-.markdown h1 { @apply font-bold text-5xl mb-8; }
-.markdown h2 { @apply font-bold text-4xl mb-2; }
-.markdown h3 { @apply font-bold text-3xl mb-2; }
-.markdown h4 { @apply font-bold text-2xl mb-2; }
-.markdown h5 { @apply font-bold text-xl mb-2; }
+.markdown h1 { @apply text-5xl mb-8; }
+.markdown h2 { @apply text-4xl mb-2; }
+.markdown h3 { @apply text-3xl mb-2; }
+.markdown h4 { @apply text-2xl mb-2; }
+.markdown h5 { @apply text-xl mb-2; }
 .markdown h6 { @apply font-semibold; }
-.markdown p { @apply text-xl mb-8 font-serif; }
+.markdown p { @apply text-xl mb-8 font-thin; }
 .markdown pre { @apply mb-8 p-2; }
 .markdown ul { @apply mb-8 list-disc text-xl font-serif;}
 .markdown ol { @apply mb-8 list-decimal text-xl font-serif;}

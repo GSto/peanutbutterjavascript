@@ -3,7 +3,8 @@ import Head from 'next/head'
 import { PostDate } from '@components/post_list'
 import TagList from '@components/tag_list'
 import SEOHead from '@components/seo_head'
-import { Content, Title, StyledMarkdown, CTA } from '@components/theme'
+import { Content, Title, CTA } from '@components/theme'
+import StyledMarkdown from '@components/styled_markdown'
 import { getPostBySlug, getAllPosts } from "@pb/post_query"
 
 export default function Post({ post }) {
