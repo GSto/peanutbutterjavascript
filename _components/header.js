@@ -1,27 +1,42 @@
 import Link from 'next/link'
+import styled from 'styled-components'
+
+const StyledHeader = styled.header.attrs({
+  className: "bg-orange-700 text-white w-screen p-4 mx-auto"
+})``
+
+const LinkContainer = styled.div.attrs({
+  className: "w-full block flex-grow justify-end lg:flex lg:items-center lg:w-auto tracking-wider font-light"
+})``
+
+const LinkAnchor = styled.a.attrs({
+  className: "mr-4 cursor-pointer"
+})``
+
+function NavLink({ href, children}) {
+  return (
+    <Link href={href}>
+      <LinkAnchor>
+        {children}
+      </LinkAnchor>
+    </Link>
+  )
+}
 
 export default function Header() {
   return (
-    <header className="bg-orange-700 text-white w-screen p-4 mx-auto">
+    <StyledHeader>
       <nav className="flex flex-row">
         <Link href="/">
-          <a className="font-semibold text-xl tracking-wider">PeanutButter JavaScript</a>
+          <a className="text-xl tracking-wider">PeanutButter JavaScript</a>
         </Link>
-        <div className="w-full block flex-grow justify-end lg:flex lg:items-center lg:w-auto tracking-wider">
-          <Link href="/tags/react">
-            <a className="ml-4 mr-4 cursor-pointer">React</a>
-          </Link>
-          <Link href="/tags/redux">
-            <a className="mr-4 cursor-pointer">Redux</a>
-          </Link>
-          <Link href="/tags/vanillaJS">
-            <a className="mr-4 cursor-pointer">VanillaJS</a>
-          </Link>
-          <Link href="/about">
-            <a className="mr-4 cursor-pointer">About</a>
-          </Link>
-        </div>
+        <LinkContainer>
+          <NavLink href="/tags/react">React</NavLink>
+          <NavLink href="/tags/redux">Redux</NavLink>
+          <NavLink href="/tags/vanillaJS">VanillaJS</NavLink>
+          <NavLink href="/about">About</NavLink>
+        </LinkContainer>
       </nav>
-    </header>
+    </StyledHeader>
   )
 }
