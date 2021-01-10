@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const StyledHeader = styled.header.attrs({
-  className: "bg-orange-700 text-white w-screen p-4 mx-auto"
+  className: "bg-orange-700 text-white w-screen p-4"
 })``
 
 const LinkContainer = styled.div.attrs({
@@ -26,7 +26,7 @@ function NavLink({ href, children}) {
 export default function Header() {
   return (
     <StyledHeader>
-      <nav className="flex flex-row">
+      <nav className="flex flex-row ml-12">
         <Link href="/">
           <a className="text-xl tracking-wider">PeanutButter JavaScript</a>
         </Link>

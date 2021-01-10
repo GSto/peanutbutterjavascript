@@ -4,7 +4,7 @@ import TagList from './tag_list'
 export function PostDate({ children }) {
   if(!children) return null
   return (
-    <span className="text-xl font-serif pl-2">{children}</span>
+    <span className="text-xl pl-2">{children}</span>
   )
 }
 

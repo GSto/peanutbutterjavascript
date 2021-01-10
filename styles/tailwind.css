@@ -16,7 +16,7 @@ body {
 .markdown h4 { @apply text-2xl mb-2; }
 .markdown h5 { @apply text-xl mb-2; }
 .markdown h6 { @apply font-semibold; }
-.markdown p { @apply text-xl mb-8 font-thin; }
+.markdown p { @apply text-xl mb-8 font-thin text-gray-800; }
 .markdown pre { @apply mb-8 p-2; }
 .markdown ul { @apply mb-8 list-disc text-xl font-serif;}
 .markdown ol { @apply mb-8 list-decimal text-xl font-serif;}
@@ -26,4 +26,5 @@ body {
 .markdown a:visited { @apply text-purple-900; }
 .markdown a:hover { @apply cursor-pointer; }
 .markdown img { @apply ml-auto mr-auto mb-8 shadow-lg; }
+.markdown strong { @apply text-black font-normal; }
 
