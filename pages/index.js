@@ -8,14 +8,14 @@ import fs from 'fs'
 export default function Index({ title, description, posts }) {
     return (
       <DefaultLayout title={title} description={description}>
-        <div className="bg-purple-900 text-white w-full">
-          <div className="md:max-w-4xl sm:max-w-full px-4 py-12 mx-auto">
-            <p className="text-5xl tracking-wide">
-              JavaScript solutions for the real world
-            </p>
+        <div className="w-full">
+          <div className="md:max-w-4xl sm:max-w-full px-4 py-12 ml-12">
+            <h3 className="text-5xl tracking-wide font-thin">
+              JavaScript solutions for the real world.
+            </h3>
             <p>
               <a 
-                className="text-sm underline cursor-pointer" 
+                className="text-sm underline cursor-pointer text-gray-700" 
                 href="https://github.com/GSto/peanutbutterjavascript" 
                 target="_blank">
                   View source
@@ -23,10 +23,8 @@ export default function Index({ title, description, posts }) {
             </p>
           </div>
         </div>
-        <div className="p-4">
-          <span className="text-xl">&nbsp;</span>
-        </div>
-        <div className="max-w-4xl p-4 mx-auto">
+
+        <div className="max-w-4xl p-4 ml-12">
           <PostList posts={posts} />
         </div>
       </DefaultLayout>

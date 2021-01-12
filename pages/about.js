@@ -1,5 +1,6 @@
 import DefaultLayout from '@components/default_layout'
-import { Content, Title, StyledMarkdown } from '@components/theme'
+import { Content, Title } from '@components/theme'
+import StyledMarkdown from '@components/styled_markdown'
 import { getBlock } from '@pb/post_query'
 
 export default function About({ title, description, content }) {
