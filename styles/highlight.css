@@ -75,7 +75,7 @@ pre code  {
 }
 
 .hljs-meta-string {
-	color: #4d99bf;
+  color: #4d99bf;
 }
 
 .hljs-emphasis {
@@ -93,4 +93,5 @@ pre code  {
 
 .hljs-keyword {
   color: #7aa6da;
+  font-weight: 200;
 }
